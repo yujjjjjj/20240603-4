@@ -7,8 +7,8 @@ https://www.tensorflow.org/hub/tutorials/movenet
 
 function preload(){
  dogImg =loadImage("dog.gif")
-
 }
+
 let video, bodypose, pose, keypoint, detector;
 let poses = [];
 
@@ -87,7 +87,6 @@ function drawSkeleton() {
       push()
         Image = (dogImg,partA.x-width, partA.y, dogImg.width, dogImg.height)
         Image = (dogImg,partB.x-width, partB.y, dogImg.width, dogImg.height)
-
       pop()
     }
     
