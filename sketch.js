@@ -6,7 +6,7 @@ https://www.tensorflow.org/hub/tutorials/movenet
 */
 
 let video, bodypose, pose, keypoint, detector;
-let poses = [i];
+let poses = [];
 
 async function init() {
   const detectorConfig = {
@@ -59,16 +59,6 @@ function drawSkeleton() {
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
     // shoulder to wrist
-    partA = pose.keypoints[0]
-if(partA.score > 0.1) {
-  //line(partA.x, partA.y, partB.x, partB.y)
-  push()
-    textSize(40)
-    scale(-1,1)
-    text("412730649 吳羽婕",partA.x-width, paartA.y-250)
-      //print(partA.x)
-  pop()
-}
     for (j = 5; j < 9; j++) {
       if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
         partA = pose.keypoints[j];
@@ -76,23 +66,13 @@ if(partA.score > 0.1) {
         line(partA.x, partA.y, partB.x, partB.y);
       }
     }
-
-    function preload(){
-	    dogImg = loadImage("dog.gif");
-    }
-    
     // shoulder to shoulder
     partA = pose.keypoints[5];
     partB = pose.keypoints[6];
     if (partA.score > 0.1 && partB.score > 0.1) {
-      //line(partA.x, partA.y, partB.x, partB.y);
-      push()
-        image(dogImg,partA.x-25, partA.y-75,150,150)
-        image(dogImg,partB.x-25, partB.y-75,150,150)
-          // print(partA.x)
-      pop()
+      line(partA.x, partA.y, partB.x, partB.y);
+      
     }
-    
     // hip to hip
     partA = pose.keypoints[11];
     partB = pose.keypoints[12];
@@ -100,7 +80,6 @@ if(partA.score > 0.1) {
       line(partA.x, partA.y, partB.x, partB.y);
       
     }
-    
     // shoulders to hips
     partA = pose.keypoints[5];
     partB = pose.keypoints[11];
@@ -114,7 +93,6 @@ if(partA.score > 0.1) {
       line(partA.x, partA.y, partB.x, partB.y);
       
     }
-    
     // hip to foot
     for (j = 11; j < 15; j++) {
       if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
