@@ -5,6 +5,10 @@ https://www.tensorflow.org/hub/tutorials/movenet
 
 */
 
+function preload(){
+ dogImg =loadImage("dog.gif")
+
+}
 let video, bodypose, pose, keypoint, detector;
 let poses = [];
 
@@ -59,6 +63,13 @@ function drawSkeleton() {
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
     // shoulder to wrist
+    partA = pose.keypoints[0]
+    push()
+      textSize(40)
+      text("412730649吳羽婕",partA.x, partA.y-250)
+    pop()
+  }
+  
     for (j = 5; j < 9; j++) {
       if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
         partA = pose.keypoints[j];
@@ -66,6 +77,8 @@ function drawSkeleton() {
         line(partA.x, partA.y, partB.x, partB.y);
       }
     }
+
+    
     // shoulder to shoulder
     partA = pose.keypoints[5];
     partB = pose.keypoints[6];
