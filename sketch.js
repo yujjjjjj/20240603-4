@@ -77,9 +77,18 @@ function drawSkeleton() {
         line(partA.x, partA.y, partB.x, partB.y);
       }
     }
-
+ 
+    //眉毛
+    partA = pose.keypoints[1];
+    partB = pose.keypoints[2];
+    if (partA.score > 0.1 && partB.score > 0.1) {
+      push()
+        Image = (dogImg,partA.x-width, partA.y, dogImg.width, dogImg.height)
+        Image = (dogImg,partB.x-width, partB.y, dogImg.width, dogImg.height)
+      pop()
+    }
     
-    // shoulder to shoulder
+    // 肩膀
     partA = pose.keypoints[5];
     partB = pose.keypoints[6];
     if (partA.score > 0.1 && partB.score > 0.1) {
@@ -89,55 +98,7 @@ function drawSkeleton() {
         Image = (dogImg,partB.x-width, partB.y, dogImg.width, dogImg.height)
       pop()
     }
-    
-    // hip to hip
-    partA = pose.keypoints[11];
-    partB = pose.keypoints[12];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      //line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    // shoulders to hips
-    partA = pose.keypoints[5];
-    partB = pose.keypoints[11];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      //line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    partA = pose.keypoints[6];
-    partB = pose.keypoints[12];
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      //line(partA.x, partA.y, partB.x, partB.y);
-      
-    }
-    // hip to foot
-    for (j = 11; j < 15; j++) {
-      if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
-        partA = pose.keypoints[j];
-        partB = pose.keypoints[j + 2];
-       // line(partA.x, partA.y, partB.x, partB.y);
-        
-      }
-    }
-  }
-}
 
-/* Points (view on left of screen = left part - when mirrored)
-  0 nose
-  1 left eye
-  2 right eye
-  3 left ear
-  4 right ear
-  5 left shoulder
-  6 right shoulder
-  7 left elbow
-  8 right elbow
-  9 left wrist
-  10 right wrist
-  11 left hip
-  12 right hip
-  13 left kneee
-  14 right knee
-  15 left foot
-  16 right foot
-*/
+ 
+        
+}
