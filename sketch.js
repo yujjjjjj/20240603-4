@@ -97,8 +97,5 @@ function drawSkeleton() {
         Image = (dogImg,partA.x-width, partA.y, dogImg.width, dogImg.height)
         Image = (dogImg,partB.x-width, partB.y, dogImg.width, dogImg.height)
       pop()
-    }
-
- 
-        
+  }        
 }
