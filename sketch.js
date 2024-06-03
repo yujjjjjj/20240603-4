@@ -70,27 +70,32 @@ function drawSkeleton() {
     partA = pose.keypoints[5];
     partB = pose.keypoints[6];
     if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
-      
+      //line(partA.x, partA.y, partB.x, partB.y);
+      push()
+        Image = (dogImg,partA.x-width, partA.y, dogImg.width, dogImg.height)
+        Image = (dogImg,partB.x-width, partB.y, dogImg.width, dogImg.height)
+
+      pop()
     }
+    
     // hip to hip
     partA = pose.keypoints[11];
     partB = pose.keypoints[12];
     if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
+      //line(partA.x, partA.y, partB.x, partB.y);
       
     }
     // shoulders to hips
     partA = pose.keypoints[5];
     partB = pose.keypoints[11];
     if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
+      //line(partA.x, partA.y, partB.x, partB.y);
       
     }
     partA = pose.keypoints[6];
     partB = pose.keypoints[12];
     if (partA.score > 0.1 && partB.score > 0.1) {
-      line(partA.x, partA.y, partB.x, partB.y);
+      //line(partA.x, partA.y, partB.x, partB.y);
       
     }
     // hip to foot
@@ -98,7 +103,7 @@ function drawSkeleton() {
       if (pose.keypoints[j].score > 0.1 && pose.keypoints[j + 2].score > 0.1) {
         partA = pose.keypoints[j];
         partB = pose.keypoints[j + 2];
-        line(partA.x, partA.y, partB.x, partB.y);
+       // line(partA.x, partA.y, partB.x, partB.y);
         
       }
     }
