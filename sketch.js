@@ -6,7 +6,7 @@ https://www.tensorflow.org/hub/tutorials/movenet
 */
 
 let video, bodypose, pose, keypoint, detector;
-let poses = [];
+let poses = [i];
 
 async function init() {
   const detectorConfig = {
@@ -34,7 +34,7 @@ async function getPoses() {
 }
 
 async function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(640, 480);
   video = createCapture(VIDEO, videoReady);
   video.size(width, height);
   video.hide();
